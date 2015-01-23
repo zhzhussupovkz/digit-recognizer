@@ -32,7 +32,7 @@ def get_test_data():
 def go():
     data = get_train_data()
 
-    model_rfc = RandomForestClassifier(n_estimators = 256, criterion = 'entropy', n_jobs = -1)
+    model_rfc = RandomForestClassifier(n_estimators = 1024, criterion = 'entropy', n_jobs = -1)
 
     print 'Go!!!'
 
@@ -46,7 +46,7 @@ def go():
     model_rfc.fit(train, target)
     result['ImageId'] = range(1, len(test) + 1)
     result.insert(1,'Label', model_rfc.predict(test))
-    result.to_csv('./test_rfc_256.csv', index=False)
+    result.to_csv('./test_rfc_1024.csv', index=False)
 
 def grid_search_test():
     data = get_train_data()
